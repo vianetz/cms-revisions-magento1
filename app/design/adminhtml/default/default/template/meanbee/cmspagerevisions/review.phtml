@@ -1,3 +1,4 @@
+<?php /** @var \Meanbee_CmsPageRevisions_Block_Adminhtml_Cms_Page_Review $this */ ?>
 <?php $_revision = $this->getRevision()->getData(); ?>
 <h2>Previewing Revision #<?php echo $_revision['revision_id']; ?>, from
     <?php if (isset($_revision['page_id'])): ?>
@@ -14,10 +15,10 @@
 <tr>
     <th><?php echo $this->getDisplayName($id); ?></th>
     <td>
-        <?php if($this->isHtml($data)): ?>
+        <?php if ($this->isHtml((string)$data)): ?>
             <textarea cols="150" rows="30"><?php echo $data; ?></textarea>
         <?php else: ?>
-            <?php  if(strlen($data)) echo htmlentities($data); else echo "<em>Empty</em>"; ?>
+            <?php if (strlen((string)$data)) echo htmlentities($data); else echo "<em>Empty</em>"; ?>
         <?php endif; ?>
     </td>
 </tr>
