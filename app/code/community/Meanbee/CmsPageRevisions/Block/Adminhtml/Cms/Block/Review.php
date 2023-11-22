@@ -1,6 +1,6 @@
 <?php
 
-class Meanbee_CmsPageRevisions_Block_Adminhtml_Cms_Page_Review extends Mage_Core_Block_Template
+class Meanbee_CmsPageRevisions_Block_Adminhtml_Cms_Block_Review extends Mage_Core_Block_Template
 {
     public function isHtml(string $string): bool
     {
@@ -8,7 +8,7 @@ class Meanbee_CmsPageRevisions_Block_Adminhtml_Cms_Page_Review extends Mage_Core
         return $string !== strip_tags($string);
     }
 
-    public function getDisplayName($name)
+    public function getDisplayName(string $name): string
     {
         return ucwords(str_replace('_', ' ', $name));
     }

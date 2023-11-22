@@ -1,26 +1,26 @@
 <?php /** @var \Meanbee_CmsPageRevisions_Block_Adminhtml_Cms_Page_Review $this */ ?>
-<?php $_revision = $this->getRevision()->getData(); ?>
-<h2>Previewing Revision #<?php echo $_revision['revision_id']; ?>, from
+<?php $_revision = $this->getRevision()->getData() ?>
+<h2>Previewing Revision #<?php echo $_revision['revision_id'] ?>, from
     <?php if (isset($_revision['page_id'])): ?>
-        Page #<?php echo $_revision['page_id'];?>
+    Page #<?php echo $_revision['page_id'] ?>
     <?php elseif (isset($_revision['block_id'])): ?>
-        Block #<?php echo $_revision['block_id']; ?>
+    Block #<?php echo $_revision['block_id'] ?>
     <?php endif; ?></h2>
 <table style="max-width:100%">
 <tr>
     <th>Column</th>
     <th>Data</th>
 </tr>
-<?php foreach($_revision as $id => $data): ?>
+<?php foreach ($_revision as $id => $data): ?>
 <tr>
-    <th><?php echo $this->getDisplayName($id); ?></th>
+    <th><?php echo $this->getDisplayName($id) ?></th>
     <td>
         <?php if ($this->isHtml((string)$data)): ?>
-            <textarea cols="150" rows="30"><?php echo $data; ?></textarea>
+        <textarea id="page_<?php echo $id ?>" cols="150" rows="30" readonly><?php echo $data ?></textarea>
         <?php else: ?>
-            <?php if (strlen((string)$data)) echo htmlentities($data); else echo "<em>Empty</em>"; ?>
-        <?php endif; ?>
+        <?php if (strlen((string)$data)) echo htmlentities($data); else echo "<em>Empty</em>"; ?>
+        <?php endif ?>
     </td>
 </tr>
-<?php endforeach; ?>
+<?php endforeach ?>
 </table>
